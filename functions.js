@@ -4,7 +4,9 @@
 // 3, 4, 5 geeft 12
 // 11, 3, 9 geeft 23
 
-
+const addThree = (a, b, c) => a + b + c;
+console.log(addThree(3, 4, 5));
+console.log(addThree(11, 3, 9));
 
 /* Opdracht 2 */
 // Schrijf een functie die twee strings verwacht en deze aan elkaar geplakt teruggeeft.
@@ -12,7 +14,8 @@
 // ---- Verwachte uitkomsten:
 // "abra", "cadabra" geeft "abracadabra"
 
-
+const concat = (str1, str2) => str1 + str2;
+console.log(concat("abra", "cadabra"));
 
 /* Opdracht 3 */
 // Schrijf een functie die twee parameters verwacht: een woord en een karakter
