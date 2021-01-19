@@ -43,12 +43,12 @@ const arr1 = ["abra", "cadabra"];
 const arr2 = ["a", "b", "c"];
 
 const concatArr = (words) => {
-    let temp = "";
-    for (let i = 0; i < words.length; i++) {
-        temp += words[i];
-    }
-    return temp;
-}
+	let temp = "";
+	for (let i = 0; i < words.length; i++) {
+		temp += words[i];
+	}
+	return temp;
+};
 
 console.log(concatArr(arr1));
 console.log(concatArr(arr2));
@@ -57,7 +57,6 @@ console.log(concatArr(arr2));
 
 console.log(arr1.reduce((a, b) => a + b));
 console.log(arr2.reduce((a, b) => a + b));
-
 
 /* Opdracht 5 */
 // Schrijf een functie die een array van strings verwacht en een gezamelijke groet teruggeeft
@@ -71,20 +70,26 @@ const names2 = ["Piet", "Henk"];
 const names3 = ["A", "B", "C", "D", "E", "F"];
 
 const greet = (names) => {
-    let greeting = "Hoi ";
-    for (let i = 0; i < names.length; i++) {
-        greeting += names[i];
-        if (names[i] !== names[names.length - 1]) { // OF: (names[i + 1] !== undefined)
-            greeting += ", ";
-        }
-    }
-    return greeting + "!";
-}
+	const lastIndex = names.length - 1;
+	const secondToLast = names.length - 2;
+	let greeting = "Hoi ";
+	for (let i = 0; i < names.length; i++) {
+		if (names[i] !== names[secondToLast] && names[i] !== names[lastIndex]) {
+			greeting += names[i] + ", ";
+		}
+		if (names[i] === names[secondToLast]) {
+			greeting += names[i] + " en ";
+		}
+		if (names[i] === names[lastIndex]) {
+			greeting += names[i];
+		}
+	}
+	return greeting + "!";
+};
 
 console.log(greet(names1));
 console.log(greet(names2));
 console.log(greet(names3));
-
 
 /* --------------------- */
 // EXTRA OPDRACHTEN
@@ -107,9 +112,6 @@ greet2("Martijn");
 // "beep", "_" geeft "_beep_"
 // "kaas", "Q" geeft "QkaasQ"
 
-
-
-
 /* Opdracht 3 */
 // Schrijf een functie die een array van strings verwacht. De functie geeft
 // alle strings aan elkaar geplakt terug. Je mag hier geen array- of string methoden
@@ -117,10 +119,6 @@ greet2("Martijn");
 // ---- Verwachte uitkomsten:
 // ["abra", "cadabra"] geeft "abracadabra"
 // ["a", "b", "c"] geeft "abc"
-
-
-
-
 
 /* Opdracht 4 */
 // Schrijf een functie genaamd lastEntry die de laatste entry van een array teruggeeft.
@@ -130,18 +128,17 @@ greet2("Martijn");
 // lastEntry([46, 65, 34, 204, 190, 89], 3) geeft [204, 190, 89]
 
 const arr3 = [3, 6, 9, 17, 4, 6, 25, 4];
-const arr4 =[46, 65, 34, 204, 190, 89];
+const arr4 = [46, 65, 34, 204, 190, 89];
 
 const lastEntry = (arr, n) => {
-    if (n) {
-        return arr.slice(-n);
-    }
-    return arr[arr.length - 1];
-}
+	if (n) {
+		return arr.slice(-n);
+	}
+	return arr[arr.length - 1];
+};
 
 console.log(lastEntry(arr3));
 console.log(lastEntry(arr4, 3));
-
 
 /* Opdracht 5 */
 // Schrijf een functie die een array van getallen verwacht. De functie geeft het hoogste
@@ -154,18 +151,17 @@ const arr5 = [3, 6, 9, 17, 4, 6, 25];
 const arr6 = [46, 65, 34, 204, 190, 89];
 
 const highestNum = (arr) => {
-    let num = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] > num) {
-            num = arr[i];
-        }
-    }
-    return num;
-}
+	let num = 0;
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] > num) {
+			num = arr[i];
+		}
+	}
+	return num;
+};
 
 console.log(highestNum(arr5));
 console.log(highestNum(arr6));
-
 
 /* Opdracht 6 */
 // Schrijf een functie die geen parameters verwacht en de getallen 1 tot 100 print.
@@ -174,20 +170,17 @@ console.log(highestNum(arr6));
 // Voor getallen die zowel deelbaar zijn door 3 als door 5, print je "FizzBuzz".
 
 const fizzBuzz = () => {
-    for (let i = 1; i <= 100; i++) {
-        if (i % 3 === 0 && i % 5 === 0) {
-            console.log("FizzBuzz");
-        }
-        else if (i % 3 === 0) {
-            console.log("Fizz");
-        }
-        else if (i % 5 === 0) {
-            console.log("Buzz");
-        }
-        else {
-            console.log(i);
-        }
-    }
-}
+	for (let i = 1; i <= 100; i++) {
+		if (i % 3 === 0 && i % 5 === 0) {
+			console.log("FizzBuzz");
+		} else if (i % 3 === 0) {
+			console.log("Fizz");
+		} else if (i % 5 === 0) {
+			console.log("Buzz");
+		} else {
+			console.log(i);
+		}
+	}
+};
 
-fizzBuzz();
+// fizzBuzz();
